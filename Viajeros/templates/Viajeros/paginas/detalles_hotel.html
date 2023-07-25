@@ -1,0 +1,59 @@
+{% extends 'Viajeros/base/base.html' %}
+
+
+{% load static %}
+
+{% block extra_css %}
+    <!-- <link rel="stylesheet" href="{% static 'aula_virtual/css/listar_instructores.css' %}"> -->
+{% endblock %}
+
+{% block titulo %}  {% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+
+<section class="listado">
+
+    <br>
+    <h2>{{ hotel.nombre_hotel }}</h2>
+   
+    <h3>Detalles del Hotel</h3>
+    <div class="hotel-details">
+        
+        <p>{{ hotel.direccion }}</p> 
+        <p>{{ hotel.descripcion }}</p>
+
+        <img class="hotel-image" src="{% static 'Viajeros/img/' %}{{hotel.imagen.url }}"  alt="{{ hotel.nombre }}" /> 
+        
+        <h3>Servicios:</h3>      
+
+            {% for servicio in hotel.servicios.all %}
+            <li>{{ servicio.nombre }}</li>
+            {% endfor %}
+
+    </div>
+</section>
+
+<br>
+
+<a href="{% url 'alojamiento' %}" class="btn btn-primary">Volver</a>
+
+{% if user.is_superuser %}
+<a href="{% url 'reservar_hotel' %}" class="btn btn-primary">Enviar Reserva</a>
+{% else %}
+<a href="{% url 'enviar_reserva_hotel' %}" class="btn btn-primary">Enviar Reserva</a>
+{% endif %}
+
+
+
+
+
+{% endblock %}
+
+
+
+
+

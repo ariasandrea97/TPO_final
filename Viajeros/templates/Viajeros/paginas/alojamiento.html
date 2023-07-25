@@ -1,0 +1,40 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+{% block extra_css %} {% endblock %}
+{% block titulo %}Viajeros{% endblock %}
+
+{% block encabezado %} {% endblock %}
+
+{% block contenido %}
+
+    <h1>Lista de Hoteles</h1>
+    
+ 
+    <br>
+    {{ hotel.imagen.url }}
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        {% for hotel in hoteles %}
+
+            <div class="col-md-4">
+                <div class="card d-inline-block" style="width:350px">
+                  <div class="p-3 bg-dark warning text-white">
+                    <img class="card-img-top card-image" src="{% static 'Viajeros/img' %}{{ hotel.imagen.url }}" alt="Card image">
+                    <!-- <img class="card-img-top card-image" src="{{ hotel.imagen.name }}" alt="Card image"> -->
+
+                    <div class="card-body">
+                      <h4 class="card-title card-title-custom">{{ hotel.nombre_hotel }}</h4>
+                      <p class="card-text card-text-custom">{{ hotel.direccion }}</p>
+                      <a href="/Viajeros/hoteles/{{ hotel.id }}/detalles" class="btn btn-primary">Ver detalles</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+   
+        {% endfor %}
+    </div>
+
+
+
+{% endblock %}

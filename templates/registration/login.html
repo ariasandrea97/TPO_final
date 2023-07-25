@@ -1,0 +1,74 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'Viajeros/css/index.css' %}">
+{% endblock %}
+
+{% block titulo %}Login{% endblock %}
+{% block encabezado %}
+{% endblock %}
+
+{% block contenido %}
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body> -->
+
+
+    {% if form.errors %}
+        <p>Su nombre de usuario y contraseña no coinciden. Inténtalo de nuevo.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p>Su cuenta no tiene acceso a esta página. Para proceder,
+            por favor inicie sesión con una cuenta que tenga acceso.</p>
+        {% else %}
+        <!-- <p>Por favor inicie sesion</p> -->
+
+        {% endif %}
+    {% endif %}
+
+    <div class="card bg-dark text-white w-50"> 
+    
+        <img src="{% static 'Viajeros/img/vinos.jpg'%}" class="card-img" alt="...">
+       
+        <h1 class="card-img-overlay text-center" >"Bienvenido - Inicia Tu Sesión"</h1>
+    </div>
+    <br>
+
+    <!-- <form method="post" action="{% url 'login' %}"> -->
+    <form method="post">
+    {% csrf_token %}
+    <table>
+    <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+    </tr>
+    </table>
+    <br>
+    <input type="submit" class="btn btn-primary" value="Iniciar sesion">
+    <input type="hidden" name="next" value="{{ next }}">
+    </form>
+
+
+    <!-- <p><a href="{% url 'password_reset' %}">Olvidó su contraseña?</a></p> -->
+    <br>
+    <p>Si aún no tienes una cuenta ingresa aqui:   <a href="{% url 'registro' %}" class="btn btn-primary" > Registrar </a> </p> 
+   
+
+
+
+    {% endblock %}
+<!-- </body>
+</html> -->

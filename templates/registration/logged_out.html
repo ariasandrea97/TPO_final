@@ -1,0 +1,16 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+
+{% endblock %}
+
+{% block titulo %}Logout{% endblock %}
+{% block encabezado %}
+{% endblock %}
+
+{% block contenido %}
+<p>Sesion Cerrada</p>
+
+<a href="{% url 'login'%}">Haga clic aquí para iniciar sesión de nuevo.</a>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'Viajeros/base/base.html' %}
+
+{% block content %}
+  <!-- <h2>Reserva</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Reservar</button>
+  </form> -->
+
+    <h2>Reservas</h2>
+    <ul>
+        {% for reserva in reservas %}
+            <li>{{ reserva.fecha }} - {{ reserva.get_tipo_reserva_display }}</li>
+        {% empty %}
+            <li>No se encontraron reservas.</li>
+        {% endfor %}
+    </ul>
+
+
+
+{% endblock %}
+
+
+
+

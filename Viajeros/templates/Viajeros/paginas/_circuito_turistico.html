@@ -1,0 +1,167 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+
+{% block titulo %}Viajeros{% endblock %}
+
+{% block encabezado %}
+
+
+
+{% endblock %}
+
+{% block contenido %}
+<h1>Circuito Turistico</h1>
+
+<h3>EXCURSIONES DESTACADAS</h3>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col-md-4">
+        <div class="card h-100 bg-dark">
+            <div class="p-3 bg-dark warning text-white" style="width:350px">
+              <img class="card-img-top card-image" src="{% static 'Viajeros/img/Atuel_Travel.jpg' %}" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title card-title-custom">CAÑON DEL ATUEL</h4>
+                <p class="card-text card-text-custom">Disponible: Todos los días. Horario: 09.00 hs. </p>
+                <a href="#cañondelatuel" class="btn btn-primary">Ver detalles</a>
+                <a href="{% url 'enviar_reserva_excursion' %}" class="btn btn-primary">Enviar Reserva</a>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="card h-100 bg-dark">
+        <div class="p-3 bg-dark warning text-white" style="width:350px">
+            <img class="card-img-top card-image" src="{% static 'Viajeros/img/Villavicencio.jpg' %}" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title card-title-custom">Villavicencio</h4>
+              <p class="card-text">Salidas: Lunes a Sábados. Horario: de 09.00 hs y 15.00 hs.</p>
+              <a href="#villavicencio" class="btn btn-primary">Ver detalles</a>
+              <a href="{% url 'enviar_reserva_excursion' %}" class="btn btn-primary">Enviar Reserva</a>
+            </div>
+          </div>
+      </div>
+   </div>
+    
+    <div class="col-md-4">
+        <div class="card h-100 bg-dark">
+          <div class="p-3 bg-dark warning text-white" style="width:350px">
+              <img class="card-img-top card-image" src="{% static 'Viajeros/img/bodegas_viñedos.jpg' %}" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title card-title-custom">Bodegas y Viñedos</h4>
+                <p class="card-text">Salidas:Lunes a Sábados. Horario: de 09.00 hs. a 15.30 hs (horario aproximado).</p>
+                <a href="#viñedosybodegas" class="btn btn-primary">Ver detalles</a>
+                <a href="{% url 'enviar_reserva_excursion' %}" class="btn btn-primary">Enviar Reserva</a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+<br>
+    <div class="col-md-4">
+      <div class="card h-100 bg-dark">
+        <div class="p-3 bg-dark warning text-white" style="width:350px">
+            <img class="card-img-top card-image" src="{% static 'Viajeros/img/bodegas_viñedos.jpg' %}" alt="Card image">
+            <div class="card-body">
+              <h4 class="card-title card-title-custom">City Tour en la ciudad de San Rafael</h4>
+              <p class="card-text">Salidas: Jueves, Viernes, Sabados y Domingos. Duracion: 4 Horas</p>
+              <a href="#citytour" class="btn btn-primary">Ver detalles</a>
+              <a href="{% url 'enviar_reserva_excursion' %}" class="btn btn-primary">Enviar Reserva</a>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+          <div class="col-md-4">
+            <div class="card h-100 bg-dark">
+              <div class="p-3 bg-dark warning text-white" style="width:350px">
+                  <img class="card-img-top card-image" src="{% static 'Viajeros/img/turismo_aventura.png' %}" alt="Card image">
+                  <div class="card-body">
+                    <h4 class="card-title card-title-custom">Turismo Aventura en Valle Grande</h4>
+                    <p class="card-text">Salidas:Lunes a Domingos. Horarios: 08.00 hs y 15.00 hs. Duracion: 4 Horas</p>
+                    <a href="#turismo_aventura" class="btn btn-primary">Ver detalles</a>
+                    <a href="{% url 'enviar_reserva_excursion' %}" class="btn btn-primary">Enviar Reserva</a>
+                  </div>
+                </div>
+            </div>
+          </div>
+</div>
+
+</div>
+
+<br>
+<br>
+
+<div class="container">
+<h3><a name="cañondelatuel">Excursión al cañón del Atuel</a></h3>
+
+<p>En esta excursión contemplarás el estrecho cañón en el que desemboca el río Atuel. Además, disfrutarás de unas magníficas vistas de este famoso desfiladero de la provincia argentina de Mendoza.</p>
+<p></p>Itinerario</p>
+<p>Tras recogerlos en el hotel de San Rafael a las 9 horas, tomaremos la Ruta Nacional 144 en dirección a la zona agrícola de Cuadro Benegas.
+Continuaremos el trayecto ascendiendo hasta los 1300 metros a través de la llamada cuesta de los Terneros. Allí haremos una pausa para disfrutar de las vistas desde el mirador de San Francisco de Asís, que ofrece unas extraordinarias panorámicas de esta zona de la provincia de Mendoza.
+Siguiendo el curso del río Atuel llegaremos hasta el Club de Pescadores de San Rafael. Desde allí, emprenderemos una caminata para adentrarnos en el espectacular cañón del cauce fluvial. Recorreremos un breve tramo de 300 metros, haciendo varias paradas en los miradores de la zona para que podáis hacer fotos del angosto desfiladero.
+La ruta de senderismo por el cañón del Atuel nos llevará hasta el embalse Valle Grande, donde desemboca el río. Tendréis dos horas libres en el pantano para reponer fuerzas con vuestro propio pícnic. También podéis realizar diversas actividades de aventura como rafting o rápel, que sin duda permitirán descargar adrenalina a los más intrépidos.
+Por la tarde emprenderemos el camino de vuelta, haciendo una parada en una finca local. Allí conoceremos el proceso del deshidratado de la fruta y de la elaboración de vinos artesanales que, por supuesto, tendréis ocasión de probar.
+Finalmente, a las 19:00 horas regresaremos a vuestro hotel de San Rafael.</p>
+</div>
+<br>
+<br>
+
+<div class="container">
+<h3><a name="villavicencio">Villavicencio</a></h3>
+<p>Un paseo por la zona precordillerana, antigua ruta 7 a Chile, donde nos encontraremos con la planta
+   embotelladora de Agua Mineral Villavicencio, importantes plantas cementeras de Corcemar y Mineti, 
+   Monumento Histórico de Canota, Gran Hotel de Villavicencio, de singular belleza, caracoles de 
+   Villavicencio, mirador (vista panorámica imponente).</p>
+<p>El recorrido incluye, monumento a canota, hotel, jardin iglesia y primer mirador</p>
+<p>Duración: 5 hs</p>
+<p>Incluye: </p>
+<p>Recorrido Guiado</p>
+<p>Pick up por los hoteles y domicilios dentro del radio centrico</p>
+<p>No incluye Desayuno</p>
+<p>Ingreso a la reserva se paga en boleteria a guardaparques</p>
+</div>
+<br>
+<br>
+
+<div class="container">
+<h3><a name="viñedosybodegas">Tour de viñedos y bodegas por San Rafael</a></h3>
+<p>Recorre los viñedos de San Rafael y disfruta de sus exquisitos vinos mendocinos. Además, en este tour visitarás las bodegas Funkenhausen y Bianchi o Limbo y Chayee Bourras.</p>
+<h4>Modalidades</h4>
+<p>Tour por las bodegas Funkenhausen y Bianchi</p>
+<p>A las 9:00 horas, os recogeremos en vuestro hotel de San Rafael y pondremos rumbo hacia sus extensas zonas de cultivo. Como en toda la provincia de Mendoza, destacan especialmente los viñedos.
+La primera parada tendrá lugar en la bodega Funkenhausen, donde conoceremos la historia de esta compañía con orígenes extranjeros. Además, realizaremos una cata de vinos con los sumilleres de este popular centro de enoturismo, que se ha convertido en todo un referente de San Rafael.
+Continuaremos el tour en la bodega Bianchi, perteneciente a una familia originaria de Italia. Visitaremos sus viñedos, donde los agricultores os mostrarán cuáles son sus principales herramientas de trabajo. Además, si realizáis el tour durante los meses de marzo y abril, os proporcionaremos la indumentaria de labranza para que vosotros mismos participéis en las labores de la cosecha. Tras el duro trabajo, degustaremos los vinos elaborados en la bodega.
+La última parada tendrá lugar en una casa de campo de la zona, desde la que contemplaremos los viñedos de San Rafael. Además, en esta vivienda rural disfrutaremos de la gastronomía mendocina con un almuerzo tradicional. El menú incluye entrante, plato principal, postre y una bebida, a elegir entre gaseosa o copa de vino local.
+Después de comer regresaremos finalmente a vuestro hotel de San Rafael, donde llegaremos a las 15:30 horas.</p>
+<p>Horarios: este tour opera de Lunes a sábados.</p>
+</div>
+<br>
+<br>
+
+<div class="container">
+<h3><a name="citytour">City Tour en la ciudad de San Rafael y alrededores</a></h3>
+<p>Un paseo que nos lleva a los atractivos de la ciudad más relevantes para conocer sus secretos acompañados de un guía local.</p>
+<p>En el recorrido por la ciudad del sol y el buen vino, están incluidos algunos lugares fundamentales que hacen a la existencia y funcionamiento de lo que es hoy Mendoza Turística, como el paseo Alameda, el Área Fundacional (Plaza Pedro del Castillo), el Acuario, las principales avenidas del microcentro, La imponente Plaza Independencia, El barrio Cívico, y el Parque General San Martín (Rosedal, Challao), Cerro de la Gloria y el Teatro Frank Romero Day.</p>
+<p>Tendremos tiempo tambien para visitar un fabrica de chocolate y una bodega con degustación!</p>
+</div>
+  <br>
+  <br>
+
+  <div class="container">
+<h3><a name="turismo_aventura">Turismo Aventura en Valle Grande</a></h3>
+<p> Mediodía para la aventura en la zona de Valle Grande, disfrutando del río y de la montaña.</p>
+                        <ul>
+                          <li>Cabalgatas</li>
+                          <li>Trekking</li>
+                          <li>Rappel</li>
+                          <li>Tirolesa</li>
+                          <li>Hidro Speed</li>
+                        </ul>
+ </div>
+
+{% endblock %}

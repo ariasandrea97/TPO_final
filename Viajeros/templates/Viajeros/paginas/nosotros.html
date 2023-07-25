@@ -1,0 +1,78 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+
+{% block extras_css%}
+   
+    <link rel="stylesheet" href="{% static 'Viajeros/css/index.css' %}">
+
+{% endblock %}
+
+{% block contenido %}
+    
+    
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active d-item">
+        <img src="{% static 'Viajeros/img/caminos_del_vino2.jpg'%}" class="d-block " alt="...">
+      </div>
+
+      <div class="carousel-item d-item">
+        <img src="{% static 'Viajeros/img/Reyunos_GalileoVitali.jpg'%}" class="d-block " alt="...">
+      </div>
+
+      <div class="carousel-item d-item">
+        <img src="{% static 'Viajeros/img/sos-04.jpg'%}" class="d-block " alt="...">
+      </div>
+
+    </div>
+
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+</div>
+
+
+<div class="container-flex bg-success p-2 text-dark bg-opacity-25 ">
+
+  
+   <h1>SOBRE VIAJEROS </h1>
+
+   <p>Viajeros es una web especializada en ofrecerte lo mejor en la pcia de Mendoza.
+    Nos diferenciamos del resto de las agencias de Turismo recepctivo on line porq contamos con oficina, 
+    fisica y telefonos de guardia las 24hs.
+   </p>
+
+   <p> Diseñamos excursiones y viajes exclusivos para aquellos que desean conocer el mundo a partir de la conexión
+     única con el lugar que visitan. Nuestro equipo de jóvenes profesionales trabajan para crear itinerarios con
+     servicios a la medida de cada viajero. Es que amamos Mendoza y queremos que se lleven lo mejor que tenemos: montaña, vinos, aventura, relax y diversión. 
+   </p>
+
+      
+   <p> El personal que compone nuestro staff reside en la provincia por lo
+       que no ofrecemos conocer la misma de la mano de un profesional
+       de turismo "local", con extensa experiencia y sino que además son
+       graduados en la materia y cuentan con todas las certificaciones y
+       autorizaciones necesarias.
+   </p>      
+     
+   <p>  Si queres que tu viaje sea inolvidable escribinos.</p>    
+
+</div>
+    <a href="{% url 'enviar_consulta' %}" class="btn btn-primary">Enviar Consulta</a>
+
+{% endblock %}

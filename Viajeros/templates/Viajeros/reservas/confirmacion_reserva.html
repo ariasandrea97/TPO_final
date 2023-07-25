@@ -1,0 +1,28 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+{% block extra_css %}
+{% endblock %}
+{% block titulo %}  {% endblock %}
+{% block encabezado %}
+{% endblock %}
+{% block contenido %}
+
+ <h1>Hola  {{user.username}},</h1>
+  
+ <h4>Tu reserva ha sido confirmada.</h4>
+ 
+ <!-- <p>Detalles de la reserva:</p>
+ <ul>
+   <li>Fecha: {{ fecha_reserva }}</li>
+   <li>Hora: {{ hora_reserva }}</li>
+   <li>Cantidad de adultos: {{ cantidad_adultos }}</li>
+   <li>Cantidad de menores: {{ cantidad_menores }}</li>
+ </ul> -->
+
+ <h4>Gracias por reservar con nosotros.</h4>
+ <br>
+ <h4>Atentamente,</h4>
+ <h4>Equipo de reservas</h4>
+
+
+ {% endblock %}

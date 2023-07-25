@@ -1,0 +1,64 @@
+{% extends 'Viajeros/base/base.html' %}
+
+
+{% load static %}
+
+{% block extra_css %}
+    <!-- <link rel="stylesheet" href="{% static 'aula_virtual/css/listar_instructores.css' %}"> -->
+{% endblock %}
+
+{% block titulo %}  {% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+
+
+<h2>Reservas de hotel</h2>
+
+<div class="form-row justify-content-center">
+    <div class="form-group col-md-12">
+        <table class="table table-bordered">
+            <thead class="table-header">
+
+      <tr>
+        <th>Nro Reserva</th>
+        <th>Fecha de registracion</th>
+        <th>Usuario</th>
+        <th>Hotel</th>
+        <th>Fecha de llegada</th>
+        <th>Fecha de salida</th>
+        <th>Adultos</th>
+        <th>Menores</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for reserva in reservas %}
+      <tr>
+        <td>{{reserva.id}}</td>
+        <td>{{reserva.fecha_registracion}}</td>
+        <td>{{ reserva.usuario }}</td>
+        <td>{{ reserva.hotel }}</td>
+        <td>{{ reserva.fecha_desde }}</td>
+        <td>{{ reserva.fecha_hasta }}</td>
+        <td>{{ reserva.adulto }}</td>
+        <td>{{ reserva.menor }}</td>
+        <td>
+
+          <a href="{% url 'modificar_reserva' reserva.id %}">Modificar</a>
+          <a href="{% url 'eliminar_reserva' reserva.id %}">Eliminar</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+    </div>
+</div>
+<a href="{% url 'buscar_reservas_admin' %}" class="btn btn-primary">Volver</a>
+
+  {% endblock %}

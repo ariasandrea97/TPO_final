@@ -1,0 +1,32 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+{% block extra_css %}
+{% endblock %}
+{% block titulo %}  {% endblock %}
+{% block encabezado %}
+{% endblock %}
+{% block contenido %}
+
+
+<h2>Eliminar reserva</h2>
+<p>¿Estás seguro de que deseas eliminar esta reserva?</p>
+
+
+<p>Excursion: {{ reserva.excursion }}</p>
+<p>Fecha de reserva: {{ reserva.fecha_reserva }}</p>
+<p>Fecha de reserva: {{ reserva.hora_reserva }}</p>
+
+<form method="post" action="">
+  {% csrf_token %}
+
+  {% if user.is_superuser %}
+  <a href="{% url 'buscar_reservas_admin' %}" class="btn btn-primary">Volver</a>
+  {% else %}
+  <a href="{% url 'listar_reservas' %}" class="btn btn-primary">Volver</a>
+  {% endif %}
+
+  <input type="submit" class="btn btn-primary" value="Eliminar">
+</form>
+
+
+{% endblock %}

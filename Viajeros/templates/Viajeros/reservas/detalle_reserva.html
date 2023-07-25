@@ -1,0 +1,30 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block titulo %}  {% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+
+
+
+<h2>Detalles de la reserva</h2>
+<p>Numero reserva: {{ reserva.id}}</p>
+<p>Fecha de registracion: {{ reserva.fecha_registracion }}</p>
+<p>Hotel: {{ reserva.Hotel }}</p>
+<p>Fecha de llegada: {{ reserva.fecha_desde }}</p>
+<p>Fecha de salida: {{ reserva.fecha_hasta }}</p>
+<p>Adultos: {{ reserva.adulto }}</p>
+<p>Menores: {{ reserva.menor }}</p>
+<a href="{% url 'modificar_reserva' reserva.id %}">Modificar</a>
+<a href="{% url 'eliminar_reserva' reserva.id %}">Eliminar</a>
+
+
+
+{% endblock %}

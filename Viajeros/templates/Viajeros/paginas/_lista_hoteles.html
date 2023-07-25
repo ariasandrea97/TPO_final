@@ -1,0 +1,70 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+
+{% block titulo %}Viajeros{% endblock %}
+
+{% block encabezado %}
+    <!-- <style>
+        /* Estilos CSS para la lista de hoteles */
+        .hotel-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .hotel-image {
+            max-width: 300px;
+            max-height: 200px;
+        }
+    </style> -->
+
+{% endblock %}
+
+{% block contenido %}
+
+    <h1>Lista de Hoteles</h1>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        {% for hotel in hoteles %}
+            <div class="col-md-4">
+              <div class="card d-inline-block " style="width:350px">
+                <div class="p-3 bg-dark warning text-white">
+                    <img class="card-img-top" src="{% static 'Viajeros/img/hotel_mendoza2.jpg' %}" alt="Card image">
+                    <div class="card-body">
+                      <h4 class="card-title fs-1">{{ hotel.nombre_hotel }}</h4>
+                      <p class="card-text">{{ hotel.direccion }}</p>
+                      <!-- <a href="{% url 'detalle_hotel_Mendoza' %}" class="btn btn-primary">Ver Detalle</a> -->
+                      <a href="/Viajeros/hoteles/{{ hotel.id }}/detalles" class="btn btn-primary">Ver detalles</a>
+                    </div>
+                </div>
+              </div>
+            </div>
+      
+
+
+
+            <!-- <div class="hotel-card">
+                <h2>{{ hotel.nombre_hotel }}</h2>
+                <p>{{ hotel.direccion }}</p>
+                <img class="hotel-image" src="{{ hotel.imagen.url }}" alt="{{ hotel.nombre }}" />
+                <a href="/Viajeros/hoteles/{{ hotel.id }}/detalles">Ver detalles</a>
+            </div> -->
+        {% endfor %}
+    </div>
+
+
+
+    <!-- {% for hotel in hoteles %}
+        <div class="hotel-card">
+            <h2>{{ hotel.nombre_hotel }}</h2>
+            <p>{{ hotel.direccion }}</p>
+            <img class="hotel-image" src="{{ hotel.imagen.url }}" alt="{{ hotel.nombre }}" />
+            <a href="/Viajeros/hoteles/{{ hotel.id }}/detalles">Ver detalles</a>
+        </div>
+    {% endfor %} -->
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block titulo %}  {% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+
+
+<h2>Modificar reserva</h2>
+
+
+
+<form class="mi-formulario" method="POST">
+    {% csrf_token %}
+
+    {{ form.as_p }}
+
+    {% if user.is_superuser %}
+        <a href="{% url 'buscar_reservas_admin' %}" class="btn btn-primary">Volver</a>
+    {% else %}
+        <a href="{% url 'listar_reservas' %}" class="btn btn-primary">Volver</a>
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+</form>
+
+
+
+
+
+
+{% endblock %}

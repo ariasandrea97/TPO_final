@@ -1,0 +1,29 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+
+{% block extras_css%}
+   
+    <link rel="stylesheet" href="{% static 'Viajeros/css/registro.css' %}">
+
+{% endblock %}
+
+{% block titulo %}Viajeros{% endblock %}
+
+{% block encabezado %}
+
+
+{% endblock %}
+
+{% block contenido %}
+
+<h1>Alta Nuevo Usuario - Viajeros</h1>
+
+
+<form action="{% url 'registro' %}" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <input type="submit" class="btn btn-primary" value="Registrarse ">
+</form>
+
+{% endblock %}

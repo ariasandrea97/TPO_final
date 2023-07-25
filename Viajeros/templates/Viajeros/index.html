@@ -1,0 +1,182 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'Viajeros/css/index.css' %}">
+{% endblock %}
+
+{% block titulo %}Viajeros{% endblock %}
+
+
+
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+
+<!-- Hero -->
+<div class="p-5 text-center bg-image rounded-3" style="
+    background-image: url('https://www.civitatis.com/f/argentina/san-rafael/san-rafael.jpg');
+    /* height: 400px; */
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 60rem;
+    background-size: cover;
+  ">
+  <div class="mask" style="background-color: rgba(0, 0, 0, 0.6); ">
+    <div class="d-flex justify-content-center align-items-center h-100">
+      <div class="text-white">
+        <h1 class="mb-3">RECORRÉ SAN RAFAEL Y VIVÍ LA AVENTURA</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Hero -->
+
+
+<br>
+<div class="titulos"></div>
+    <h3>Reserva tus excursiones en Mendoza y crea recuerdos memorables.</h3>
+    <h4>HISTORIA, AVENTURA, NATURALEZA.</h4>
+    <h4>EXPERIENCIAS PARA TODOS LOS GUSTOS Y POSIBILIDADES.</h4>
+</div>
+
+
+  <!-- <div class="container carousel-container" > 
+
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" > -->
+            <!-- Indicators -->
+            <!-- <ol class="carousel-indicators">
+              <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+              <li data-target="#myCarousel" data-slide-to="1"></li>
+              <li data-target="#myCarousel" data-slide-to="2"></li>
+              <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol> -->
+        
+            <!-- Wrapper for slides -->
+        <!-- <div class="carousel-inner">
+                  <div class="item active">
+                    <img src="{% static 'Viajeros/img/Reyunos_Hidro.jpg' %}" alt="Reyunos_Hidro" style="width:100%;">
+                  </div>
+            
+                  <div class="item">
+                    <img src="{% static 'Viajeros/img/alta_montaña.jpg' %}" alt="alta_montaña"  style="width:100%;">
+                  </div>
+                
+                  <div class="item">
+                    <img src="{% static 'Viajeros/img/Reyunos_Dique.jpg' %}" alt="Reyunos_Dique"  style="width:100%;">
+                  </div>
+
+                  <div class="item">
+                      <img src="{% static 'Viajeros/img/caminos_del_vino.jpg' %}" alt="caminos_del_vino"  style="width:100%;">
+                  </div>
+            
+              
+                  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+        </div>
+    </div>
+  </div> -->
+      
+    
+      <!-- Fin Slider -->
+
+      <br>
+      <br>
+
+      <section class="skills space">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>City Tour</h3>
+                    <p>La ciudad DE San Rafael le ofrece recorrerla por sus amplias y arboladas avenidas, sus espacios verdes; como el Parque Hipólito Irigoyen en cuyo interior se encuentra el Teatro Griego Chacho Santa Cruz, o la plaza principal de la ciudad: Gral. San Martín. Lugares que nos hablan del pasado; como el Museo Histórico Militar, Plaza del Inmigrante y edificios de reconocido valor religioso y arquitectónico como la Catedral San Rafael Arcángel. </p>
+                    <p>En esta excursión también se visita una aceitera, una casa de campo y una fabrica de chocolates.</p>
+                </div>
+
+                <div class="col-md-6">
+                  <img class="card-img-top card-image" src="{% static 'Viajeros/img/city_tour.jpg' %}" alt="Card image">
+                </div>
+            </div>
+            </div>
+      </section>
+<br>
+<br>
+      <section class="skills space" style="background-color:#FFFFFF; color:#535252">
+        <div class="container">
+            <div class="row">
+                  <div class="col-md-6">
+
+                  <img class="card-img-top card-image" src="{% static 'Viajeros/img/Atuel_Travel.jpg' %}" alt="Card image">
+                  </div>
+                  <div class="col-md-6">
+                      <h3 style="color:#535252">Cañón del Atuel</h3>
+                      <p> Es la presencia viva de los orígenes del mundo donde el viento y el agua labraron en la roca esculturas naturales. Este extenso accidente geográfico es mas antiguo q la Cordillera de Los Andes. El circuito comienza en Villa Turística El Nihuil, esperan 40 Km. de camino consolidado que acompañan el incansable descenso de las aguas por el Cañón del Atuel. Figuras caprichosas como El Museo de Cera, Los Jardines Colgantes, Los Monjes, El Búho y otras q invitan a detenerse. </p>
+                      <p>Luego de una sinuosa cuesta descubrimos la inmensidad del Embalse Valle Grande, ingreso al paraje ideal para la practica de actividades de aventura y deportes acuáticos.</p>
+                  </div>
+
+            </div>
+          
+        </div>
+      </section>
+      <br>
+      <br>
+
+
+      <section class="skills space">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Caminos del Vino</h3>
+                    <p>Los Caminos del Vino es una alternativa tentadora diseñada para disfrutar en cualquier época del año de visitas a tres bodegas distintas con degustaciones de sus vinos y almuerzo en una de ellas. </p>
+                    <h3>Medio Día de Campo</h3>
+                    <p>Paseo por una casa de campo, en la parte rural de San Rafael, en donde el turista podrá disfrutar de un día de campo, con almuerzo en el lugar y con una cabalgata en zona de producción frutícola.</p>
+                </div>
+
+                <div class="col-md-6">
+
+                <img class="card-img-top card-image" src="{% static 'Viajeros/img/caminos_del_vino2.jpg' %}" alt=""> 
+                
+                </div>
+            </div>
+            </div>
+      </section>
+      <br>
+      <br>
+
+
+      <section class="skills space" style="background-color:#FFFFFF; color:#535252">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-6">
+
+        <img class="card-img-top card-image" src="{% static 'Viajeros/img/rafting2.jpg' %}" alt=""> 
+
+        </div>
+        <div class="col-md-6">
+        <h3 style="color:#535252">Turismo Aventura en Valle Grande</h3>
+        <p> Mediodía para la aventura en la zona de Valle Grande, disfrutando del río y de la montaña.</p>
+            <ul>
+              <li>Cabalgatas</li>
+              <li>Trekking</li>
+              <li>Rappel</li>
+              <li>Tirolesa</li>
+              <li>Hidro Speed</li>
+            </ul>
+        </div>
+
+        </div>            
+        </div>
+        </section>  
+
+
+
+{% endblock %}

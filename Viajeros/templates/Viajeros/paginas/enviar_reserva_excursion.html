@@ -1,0 +1,42 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+{% block extra_css %}
+{% endblock %}
+{% block titulo %}{% endblock %}
+{% block encabezado %}
+{% endblock %}
+
+{% block contenido %}
+
+      {% if user.is_authenticated %}
+        <h1>Ingrese los datos para la reserva de Excursiones</h1>
+        <p><b>Tipo de reserva:</b>: Excursion</p>
+        
+
+        {% if user.is_superuser %}
+        <form class="mi-formulario" action="{% url 'reservar_excursion' %}" method="POST">
+
+          {% csrf_token %}
+          {{form.as_p}} 
+          <input type="submit" class="btn btn-primary" value="ENVIAR RESERVA">
+        </form> 
+         
+        {% else %}
+        <form class="mi-formulario" action="{% url 'enviar_reserva_excursion' %}" method="POST">
+
+          {% csrf_token %}
+          {{form.as_p}} 
+          <input type="submit" class="btn btn-primary" value="ENVIAR RESERVA">
+        </form>  
+        {% endif %}
+
+
+
+
+      {% else %}
+        <h2> Por favor ingrese con su usuario y contraseña antes de realizar la reserva</h2>
+        <a href="{% url 'login' %}" class="btn btn-primary" > Continuar</a>
+
+      {% endif %}
+
+{% endblock %}

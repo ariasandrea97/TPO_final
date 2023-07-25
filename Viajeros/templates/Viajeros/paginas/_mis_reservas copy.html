@@ -1,0 +1,322 @@
+{% extends 'Viajeros/base/base.html' %}
+
+
+{% load static %}
+
+{% block extra_css %}
+    <!-- <link rel="stylesheet" href="{% static 'aula_virtual/css/listar_instructores.css' %}"> -->
+{% endblock %}
+
+{% block titulo %}  {% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+
+{% if user.is_authenticated %}
+
+<h3>Usuario: {{user.username}}</h3>
+<br>
+
+<div class="container">
+	<div class="form-container justifica-arriba">
+		<div class="form-row justify-content-center">
+			<h2><u>Consulta de Reservas</u></h2>
+            <br>
+            <form method="post">
+                {% csrf_token %}
+                {{ formulario.as_p }}
+                <button type="submit" class="btn btn-primary" > Buscar </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% if resultado  %}
+
+        {% if listado_hotel and resultado == 'hotel'  %}
+                <!-- <p>opcion hotel</p> -->
+                <h2>Reservas encontradas:</h2>
+                <h3>Listado de Reservas de Hotel</h3>
+                <!-- <section class="listado">                
+                    <br>
+                    <ul>
+                    {% for reserva in listado_hotel %}
+                        <li>    
+                            <br>
+                            <p><b>Fecha de registracion:</b>: {{reserva.fecha_registracion}}</p>
+                            <p><b>Hotel:</b>: {{reserva.hotel}}</p>
+                            <p><b>Fecha desde:</b>: {{reserva.fecha_desde}}</p>
+                            <p><b>Fecha hasta:</b>: {{reserva.fecha_hasta}}</p>
+                            <p><b>Adultos:</b>: {{reserva.adulto}}</p>
+                            <p><b>Menores:</b>: {{reserva.menor}}</p>
+                        </li>
+                    {% endfor %}
+                    </ul>
+                </section> -->
+
+                <div class="form-row justify-content-center">
+                    <div class="form-group col-md-12">
+                        <table class="table table-bordered">
+                            <thead class="table-header">
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Fecha de registracion</th>
+                                <th scope="col">Hotel</th>
+                                <th scope="col">Fecha desde</th>
+                                <th scope="col">Fecha hasta</th>
+                                <th scope="col">Adultos</th>
+                                <th scope="col">Menores</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                {% for reserva in listado_hotel %}
+                                <tr style='color: green'>
+                                    <th><input type="checkbox" name="selected_reservations" value="{{ reserva.id }}"></th>
+                                    <th>{{reserva.fecha_registracion}}</th>
+                                    <td>{{reserva.hotel}}</td>
+                                    <td>{{reserva.fecha_desde}}</td>
+                                    <td>{{reserva.fecha_hasta}}</td>
+                                    <td>{{reserva.adulto}}</td>
+                                    <td>{{reserva.menor}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                </div>
+                <a href="#" class="btn btn-primary">Modificar</a>
+
+
+
+        {% else %}
+                {% if listado_excursion and resultado == 'excursion' %}
+                    <!-- <p>opcion excursion</p> -->
+                    <h2>Reservas encontradas:</h2>
+                    <h3>Listado de Reservas para Excursiones</h3>
+                    <!-- <section class="listado">           
+                    <br>
+                        <ul>
+                        {% for reserva in listado_excursion %}
+                            <li>    
+                                <br>
+                                <p><b>Excursion:</b>: {{reserva.excursion}}</p>
+                                <p><b>Fecha de registracion:</b>: {{reserva.fecha_registracion}}</p>
+                                <p><b>Fecha de reserva:</b>: {{reserva.fecha_reserva}}</p>
+                                <p><b>Hora de reserva:</b>: {{reserva.hora_reserva}}</p>
+                                <p><b>Adultos:</b>: {{reserva.adulto}}</p>
+                                <p><b>Menores:</b>: {{reserva.menor}}</p>
+                                <p><b>Requiere traslado:</b>: {{reserva.traslado}}</p>
+
+                                <a href="#" class="btn btn-primary">Modificar</a>
+
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    </section> -->
+
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-md-12">
+                            <table class="table table-bordered">
+                                <thead class="table-header">
+                                <tr>
+                                    <th scope="col">Fecha de registracion</th>
+                                    <th scope="col">Excursion</th>
+                                    <th scope="col">Fecha de reserva</th>
+                                    <th scope="col">Hora de reserva</th>
+                                    <th scope="col">Adultos</th>
+                                    <th scope="col">Menores</th>
+                                    <th scope="col">Requiere traslado</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {% for reserva in listado_excursion %}
+                                    <tr style='color: green'>                                      
+                                        <th>{{reserva.fecha_registracion}}</th>
+                                        <td>{{reserva.excursion}}</td>
+                                        <td>{{reserva.fecha_reserva}}</td>
+                                        <td>{{reserva.hora_reserva}}</td>
+                                        <td>{{reserva.adulto}}</td>
+                                        <td>{{reserva.menor}}</td>
+                                        <td>{{reserva.traslado}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                    </div>
+                    <a href="#" class="btn btn-primary">Modificar</a>
+
+                {% else %}
+                    {% if listado_restaurante and resultado == 'restaurante' %}
+                        <!-- <p>opcion restaurante</p> -->
+                        <h2>Reservas encontradas:</h2>
+                        <h3>Listado de Reservas para Restaurante</h3>
+                        <!-- <section class="listado">               
+                        <br>
+                            <ul>
+                            {% for reserva in listado_restaurante %}
+                                <li>    
+                                    <br>
+                                    <p><b>Fecha de registracion:</b>: {{reserva.fecha_registracion}}</p>
+                                    <p><b>Restaurante:</b>: {{reserva.restaurante}}</p>
+                                    <p><b>Fecha de reserva:</b>: {{reserva.fecha_reserva}}</p>
+                                    <p><b>Adultos:</b>: {{reserva.adulto}}</p>
+                                    <p><b>Menores:</b>: {{reserva.menor}}</p>
+                                    <a href="#" class="btn btn-primary">Modificar</a>
+                                </li>
+                
+                            {% endfor %}
+                            </ul>
+                        </section> -->
+                        <div class="form-row justify-content-center">
+                            <div class="form-group col-md-12">
+                                <table class="table table-bordered">
+                                    <thead class="table-header">
+                                    <tr>
+                                        <th scope="col">Fecha de registracion</th>
+                                        <th scope="col">Restaurante</th>
+                                        <th scope="col">Fecha de reserva</th>
+                                        <th scope="col">Hora de reserva</th>
+                                        <th scope="col">Adultos</th>
+                                        <th scope="col">Menores</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for reserva in listado_restaurante %}
+                                        <tr style='color: green'>                                      
+                                            <th>{{reserva.fecha_registracion}}</th>
+                                            <td>{{reserva.restaurante}}</td>
+                                            <td>{{reserva.fecha_reserva}}</td>
+                                            <td>{{reserva.hora_reserva}}</td>
+                                            <td>{{reserva.adulto}}</td>
+                                            <td>{{reserva.menor}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                        </div>
+                        <a href="#" class="btn btn-primary">Modificar</a>
+
+                    {% else %}
+
+                        {% if resultado == 'todo' and listado_hotel or listado_restaurante or listado_excursion %}
+                            <h2>Reservas encontradas:</h2>
+                            <br>
+                            {% if listado_hotel %}
+                            <h3>Listado de Reservas de Hotel</h3>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-md-12">
+                                    <table class="table table-bordered">
+                                        <thead class="table-header">
+                                        <tr>
+                                            <th scope="col">Fecha de registracion</th>
+                                            <th scope="col">Hotel</th>
+                                            <th scope="col">Fecha desde</th>
+                                            <th scope="col">Fecha hasta</th>
+                                            <th scope="col">Adultos</th>
+                                            <th scope="col">Menores</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for reserva in listado_hotel %}
+                                            <tr style='color: green'>
+                                                <th>{{reserva.fecha_registracion}}</th>
+                                                <td>{{reserva.hotel}}</td>
+                                                <td>{{reserva.fecha_desde}}</td>
+                                                <td>{{reserva.fecha_hasta}}</td>
+                                                <td>{{reserva.adulto}}</td>
+                                                <td>{{reserva.menor}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <a href="#" class="btn btn-primary">Modificar</a>
+                            {% endif %}
+
+                            {% if listado_excursion %}
+                            <h3>Listado de Reservas para Excursiones</h3>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-md-12">
+                                    <table class="table table-bordered">
+                                        <thead class="table-header">
+                                        <tr>
+                                            <th scope="col">Fecha de registracion</th>
+                                            <th scope="col">Excursion</th>
+                                            <th scope="col">Fecha de reserva</th>
+                                            <th scope="col">Hora de reserva</th>
+                                            <th scope="col">Adultos</th>
+                                            <th scope="col">Menores</th>
+                                            <th scope="col">Requiere traslado</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for reserva in listado_excursion %}
+                                            <tr style='color: green'>                                      
+                                                <th>{{reserva.fecha_registracion}}</th>
+                                                <td>{{reserva.excursion}}</td>
+                                                <td>{{reserva.fecha_reserva}}</td>
+                                                <td>{{reserva.hora_reserva}}</td>
+                                                <td>{{reserva.adulto}}</td>
+                                                <td>{{reserva.menor}}</td>
+                                                <td>{{reserva.traslado}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <a href="#" class="btn btn-primary">Modificar</a>
+                            {% endif %}
+
+                            {% if listado_restaurante %}
+                            <h3>Listado de Reservas para Restaurante</h3>
+                            <div class="form-row justify-content-center">
+                                <div class="form-group col-md-12">
+                                    <table class="table table-bordered">
+                                        <thead class="table-header">
+                                        <tr>
+                                            <th scope="col">Fecha de registracion</th>
+                                            <th scope="col">Restaurante</th>
+                                            <th scope="col">Fecha de reserva</th>
+                                            <th scope="col">Hora de reserva</th>
+                                            <th scope="col">Adultos</th>
+                                            <th scope="col">Menores</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for reserva in listado_restaurante %}
+                                            <tr style='color: green'>                                      
+                                                <th>{{reserva.fecha_registracion}}</th>
+                                                <td>{{reserva.restaurante}}</td>
+                                                <td>{{reserva.fecha_reserva}}</td>
+                                                <td>{{reserva.hora_reserva}}</td>
+                                                <td>{{reserva.adulto}}</td>
+                                                <td>{{reserva.menor}}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <a href="#" class="btn btn-primary">Modificar</a>
+                            {% endif %}
+                        {% else %}
+                            <p><b>No posee reservas registradas para este usuario</b></p>
+                        {% endif %}   
+
+
+                        
+                    {% endif %}
+                {% endif %}
+        {% endif %}
+{% endif %}    
+
+{% else %}    
+    <button type="button" class="btn btn-outline-primery me-2">Iniciar Sesion</button>
+    <button type="button" class="btn btn-dark">Registrarse</button>
+
+{% endif %}   
+
+
+{% endblock %}

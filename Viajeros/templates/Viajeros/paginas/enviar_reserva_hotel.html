@@ -1,0 +1,206 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+{% block extra_css %}
+{% endblock %}
+
+{% block titulo %}{% endblock %}
+
+{% block encabezado %}
+    <link rel="stylesheet" href="{% static 'Viajeros/css/formulario.css' %}">
+{% endblock %}
+
+{% block contenido %}
+
+      {% if user.is_authenticated %}
+        <!-- <p>{{user.username}}</p> -->
+        <h1>Ingrese los datos para la reserva</h1>
+        
+        {% if user.is_superuser %}
+            <form class="mi-formulario" action="{% url 'reservar_hotel' %}" method="POST">
+              <p><b>Tipo de reserva:</b>:  Alojamiento </p>
+              {% csrf_token %}
+              {{form.as_p}} 
+              <input type="submit" class="btn btn-primary" value="ENVIAR RESERVA">
+            </form> 
+             
+        {% else %}
+            <form class="mi-formulario" action="{% url 'enviar_reserva_hotel' %}" method="POST">
+              <p><b>Tipo de reserva:</b>:  Alojamiento </p>
+              {% csrf_token %}
+              {{form.as_p}} 
+              <input type="submit" class="btn btn-primary" value="ENVIAR RESERVA">
+            </form>  
+        {% endif %}
+        
+        
+      {% else %}
+        <h2> Por favor ingrese con su usuario y contraseña antes de realizar la reserva</h2>
+        <a href="{% url 'login' %}" class="btn btn-primary" > Continuar</a>
+
+      {% endif %}
+
+{% endblock %}
+
+
+
+
+
+<!-- ####################################################################################### -->
+
+        <!-- <script>
+          function mostrarCampos(tipoReserva) {
+            var camposHotel = document.getElementById('campos-hotel');
+            var camposExcursion = document.getElementById('campos-excursion');
+            var camposRestaurante = document.getElementById('campos-restaurante');
+      
+            if (tipoReserva === 'hotel') {
+              camposHotel.style.display = 'block';
+              camposExcursion.style.display = 'none';
+              camposRestaurante.style.display = 'none';
+            } else if (tipoReserva === 'excursion') {
+              camposHotel.style.display = 'none';
+              camposExcursion.style.display = 'block';
+              camposRestaurante.style.display = 'none';
+            } else if (tipoReserva === 'restaurante') {
+              camposHotel.style.display = 'none';
+              camposExcursion.style.display = 'none';
+              camposRestaurante.style.display = 'block';
+            } else {
+              camposHotel.style.display = 'none';
+              camposExcursion.style.display = 'none';
+              camposRestaurante.style.display = 'none';
+            }
+          }
+        </script> -->
+
+        <!-- <form> -->
+        <!-- <form action="{% url 'enviar_reserva_hotel' %}" method="POST">
+          {% csrf_token %}
+          <label for="tipo-reserva">Tipo de Reserva:</label>
+          <select id="tipo-reserva" onchange="mostrarCampos(this.value)">
+            <option value="">Selecciona una opción</option>
+            <option value="hotel">Hotel</option>
+            <option value="excursion">Excursión</option>
+            <option value="restaurante">Restaurante</option>
+          </select>
+          <br> -->
+      
+          <!-- <div id="campos-hotel" style="display: none;">
+            <label for="nombre-hotel">Nombre del Hotel:</label> -->
+            <!-- <input type="text" id="nombre-hotel" name="nombre-hotel"> -->
+            <!-- <br> -->
+            <!-- Otros campos específicos de la reserva de hotel -->
+            <!-- {{ form.hotel }}
+            {{ form.fecha_desde }}
+            {{ form.fecha_hasta }}
+            {{ form.adulto }}
+            {{ form.menor }}
+          </div> -->
+      
+          <!-- <div id="campos-excursion" style="display: none;"> -->
+            <!-- <label for="destino-excursion">Destino de la Excursión:</label> -->
+            <!-- <input type="text" id="destino-excursion" name="destino-excursion"> -->
+            <!-- <br> -->
+            <!-- Otros campos específicos de la reserva de excursión -->
+            <!-- {{ form.excursion }}
+            {{ form.fecha_desde }}
+            
+            {{ form.adulto }}
+            {{ form.menor }}
+          </div>
+      
+          <div id="campos-restaurante" style="display: none;">
+            <label for="nombre-restaurante">Nombre del Restaurante:</label> -->
+            <!-- <input type="text" id="nombre-restaurante" name="nombre-restaurante"> -->
+            <!-- <br> -->
+            <!-- Otros campos específicos de la reserva de restaurante -->
+            <!-- {{ form.restaurante }}
+            {{ form.fecha_desde }}
+            
+            {{ form.adulto }}
+            {{ form.menor }}
+          </div>
+      
+          <button type="submit">Reservar</button>
+        </form> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <form action="{% url 'enviar_reserva_hotel' %}" method="post">
+          {% csrf_token %}
+          {{ form.Tipo_reserva }}
+          
+      
+         <div id="hotel-fields" style="display: none;">
+            
+            {{form.as_p}} 
+            {{ form.hotel }}
+            {{ form.fecha_desde }}
+            {{ form.fecha_hasta }}
+            {{ form.adulto }}
+            {{ form.menor }}
+          </div>
+      
+          <div id="restaurante-fields" style="display: none;">
+            {{ form.restaurante }}
+            {{ form.fecha_desde }}
+            
+            {{ form.adulto }}
+            {{ form.menor }}
+          </div>
+      
+          <div id="excursion-fields" style="display: none;">
+            {{ form.excursion }}
+            {{ form.fecha_desde }}
+            
+            {{ form.adulto }}
+            {{ form.menor }}
+          </div>
+
+      
+          <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+          <script>
+            $(document).ready(function() {
+              $("#id_Tipo_reserva").change(function() {
+                var selectedTipoReserva = $(this).val();
+      
+                if (selectedTipoReserva === "hotel") {
+                  $("#hotel-fields").show();
+                  $("#restaurante-fields").hide();
+                  $("#excursion-fields").hide();
+                } 
+                  else if (selectedTipoReserva === "restaurante") {
+                  $("#hotel-fields").hide();
+                  $("#restaurante-fields").show();
+                  $("#excursion-fields").hide();
+                } 
+                  else if (selectedTipoReserva === "excursion") {
+                  $("#hotel-fields").hide();
+                  $("#restaurante-fields").hide();
+                  $("#excursion-fields").show();
+                } 
+                 else {
+                  $("#hotel-fields").hide();
+                  $("#restaurante-fields").hide();
+                  $("#excursion-fields").hide();
+                }
+              });
+            });
+          </script>
+      
+
+          <input type="submit" class="btn btn-primary" value="ENVIAR RESERVA">
+
+        </form> -->

@@ -1,0 +1,22 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+  
+{% endblock %}
+
+{% block titulo %}  {% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+
+
+<h2>Detalles de la reserva</h2>
+<p>Fecha de reserva: {{ reserva.fecha }}</p>
+<p>Habitación: {{ reserva.habitacion }}</p>
+<!-- Agrega otros detalles de la reserva que desees mostrar -->
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+ {% endblock %}
+
+{% block titulo %}  {% endblock %}
+
+{% block encabezado %}
+{% endblock %}
+
+{% block contenido %}
+<h1>Modificar datos</h1>
+<form action="{% url 'modificar_datos' %}"  method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <br>
+  <a href="{% url 'mi_cuenta' %}" class="btn btn-primary">Volver</a>
+  <button type="submit" class="btn btn-primary" >Guardar cambios</button>
+</form>
+{% endblock %}

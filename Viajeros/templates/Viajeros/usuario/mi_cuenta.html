@@ -1,0 +1,27 @@
+{% extends 'Viajeros/base/base.html' %}
+
+
+{% load static %}
+
+{% block extra_css %}
+    <!-- <link rel="stylesheet" href="{% static 'aula_virtual/css/listar_instructores.css' %}"> -->
+{% endblock %}
+
+{% block titulo %}  {% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+<section class="listado">
+
+    <h1>Datos del usuario</h1>
+    <p><strong>Nombre:</strong> {{ datos_usuario.nombre }}</p>
+    <p><strong>Apellido:</strong> {{ datos_usuario.apellido }}</p>
+    <p><strong>Email:</strong> {{ datos_usuario.email }}</p>
+
+</section>
+<br>
+<a href="{% url 'modificar_datos' %}" class="btn btn-primary">Modificar datos</a>
+{% endblock %}

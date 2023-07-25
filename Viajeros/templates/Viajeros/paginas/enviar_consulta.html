@@ -1,0 +1,33 @@
+{% extends 'Viajeros/base/base.html' %}
+
+{% load static %}
+
+{% block extra_css %}
+  <!--   <link rel="stylesheet" href="{% static 'aula_virtual/css/alta_alumno.css' %}">   -->
+{% endblock %}
+
+{% block titulo %}{% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+
+
+        <h2>FORMULARIO DE CONSULTA</h2>
+        <br>
+
+        <form action="{% url 'enviar_consulta' %}" method="POST">
+          {% csrf_token %}
+          {{form.as_p}}
+          <br>
+          <input type="submit" class="btn btn-primary" value="ENVIAR CONSULTA">
+          <br> 
+       </form>
+
+
+  <br>
+  {% endblock %}
+
+

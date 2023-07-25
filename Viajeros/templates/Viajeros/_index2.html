@@ -1,0 +1,57 @@
+{% extends 'Viajeros/base/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block titulo %}Viajeros{% endblock %}
+
+{% block encabezado %}
+
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container">
+    <h1>Bienvenido a Viajeros</h1>
+    
+    <h2>Reservas de hotel</h2>
+    <!-- Aquí puedes mostrar información sobre reservas de hotel -->
+    
+    <h2>Excursiones</h2>
+    <!-- Aquí puedes mostrar información sobre excursiones -->
+    
+    <h2>Gastronomía</h2>
+    <!-- Aquí puedes mostrar información sobre gastronomía -->
+    
+    <h2>Carrousel</h2>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicadores -->
+        <ol class="carousel-indicators">
+            {% for image in carousel_images %}
+                <li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
+            {% endfor %}
+        </ol>
+
+        <!-- Imágenes -->
+        <div class="carousel-inner">
+            {% for image in carousel_images %}
+                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    <img class="d-block w-100" src="{% static 'Viajeros/img' %}{{ image.url }}" alt="Imagen {{ forloop.counter }}">
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Controles de navegación -->
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Anterior</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Siguiente</span>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+
+
+
+
+
+<form method="POST" action="{% url 'reservation_edit_multiple' %}">
+    {% csrf_token %}
+    {% for reserva in reservas %}
+      <input type="checkbox" name="selected_reservations" value="{{ reservation.id }}">
+      {{ reservation.fecha }} - {{ reservation.habitacion }}<br>
+    {% endfor %}
+    <button type="submit">Modificar reservas seleccionadas</button>
+  </form>
