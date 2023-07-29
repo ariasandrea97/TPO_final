@@ -78,12 +78,20 @@ WSGI_APPLICATION = 'codo_codo_2023.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'viajeros',   #'Viajeros'
-        'USER': 'postgres',
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'viajeros',   #'Viajeros'
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'Django1234',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '5432',
+
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'andreari97$viajeros',   #'Viajeros'
+        'USER': 'andreari97',
         'PASSWORD': 'Django1234',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'HOST': 'andreari97.mysql.pythonanywhere-services.com',
+        #'PORT': '5432',
+    }
     }
 }
 
