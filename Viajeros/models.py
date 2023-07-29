@@ -113,7 +113,7 @@ class ReservaRestaurante(models.Model):
     fecha_registracion= models.DateField(null=True)
     fecha_reserva = models.DateField(null=True)
     # hora_reserva=  models.TimeField(null=True)
-    hora_reserva =  models.CharField(null=True)
+    hora_reserva =  models.CharField(null=True, max_length=4)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     Tipo_reserva = models.CharField('Tipo de reserva', max_length=15, choices=TIPO_CHOICES, default='Gastronomia')
   
@@ -133,7 +133,7 @@ class ReservaExcursion(models.Model):
     fecha_registracion= models.DateField(null=True)
     fecha_reserva = models.DateField(null=True)
     # hora_reserva =  models.TimeField(null=True)
-    hora_reserva =  models.CharField(null=True)
+    hora_reserva =  models.CharField(null=True, max_length=4)
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     Tipo_reserva = models.CharField('Tipo de reserva', max_length=15, choices=TIPO_CHOICES, default='Excursion')
    
