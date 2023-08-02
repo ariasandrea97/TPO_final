@@ -92,7 +92,7 @@ DATABASES = {
         'HOST': 'andreari97.mysql.pythonanywhere-services.com',
         #'PORT': '5432',
     }
-    }
+    
 }
 
 
